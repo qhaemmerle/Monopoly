@@ -1,18 +1,13 @@
-/*
- * Communaute.cpp
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
+#include <iostream>
 #include "Communaute.h"
+#include "Case.h"
+#include <string>
+using namespace std;
 
 Communaute::Communaute() {
-	// TODO Auto-generated constructor stub
-
+	
 }
 
-Communaute::~Communaute() {
-	// TODO Auto-generated destructor stub
-}
+void Communaute :: arreterSur(){
 
+}

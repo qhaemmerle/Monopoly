@@ -1,18 +1,14 @@
-/*
- * Chance.cpp
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
+#include <iostream>
 #include "Chance.h"
+#include "Case.h"
+#include <string>
+using namespace std;
 
 Chance::Chance() {
-	// TODO Auto-generated constructor stub
 
 }
 
-Chance::~Chance() {
-	// TODO Auto-generated destructor stub
+void Chance :: arreterSur(){
+
 }
 
