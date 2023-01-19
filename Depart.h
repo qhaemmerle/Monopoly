@@ -1,17 +1,15 @@
-/*
- * Depart.h
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
 #ifndef DEPART_H_
 #define DEPART_H_
+#include"Case.h"
 
-class Depart {
+class Depart : public Case
+{
+private:
+	string nom;
+
 public:
 	Depart();
-	virtual ~Depart();
+	void arreterSur();
 };
 
 #endif /* DEPART_H_ */

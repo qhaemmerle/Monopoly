@@ -1,5 +1,3 @@
-
-
 #ifndef PRISON_H_
 #define PRISON_H_
 #include"Case.h"

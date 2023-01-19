@@ -5,11 +5,9 @@
 using namespace std;
 
 Prison::Prison() {
-	// TODO Auto-generated constructor stub
 
 }
 
-Prison::~Prison() {
-	// TODO Auto-generated destructor stub
-}
+void Prison :: arreterSur(){
 
+}

@@ -1,17 +1,14 @@
-/*
- * Communaute.h
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
 #ifndef COMMUNAUTE_H_
 #define COMMUNAUTE_H_
+#include"Case.h"
 
-class Communaute {
+class Communaute : public Case
+{
+private:
+	string nom;
+
 public:
 	Communaute();
-	virtual ~Communaute();
+	void arreterSur();
 };
-
 #endif /* COMMUNAUTE_H_ */
