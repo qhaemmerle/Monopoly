@@ -19,9 +19,12 @@ protected:
 	bool pair;
 
 public:
+	De(int v1=0, int v2=0, bool p = false);
 	~De();
-	int getValeur();
-	int LancerDe();
+	int getValeur1();
+	int getValeur2();
+	int getValeurDe();
+	void LancerDe();
 	bool Double();
 };
 
