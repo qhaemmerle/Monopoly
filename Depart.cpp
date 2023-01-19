@@ -1,18 +1,13 @@
-/*
- * Depart.cpp
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
+#include <iostream>
 #include "Depart.h"
+#include "Case.h"
+#include <string>
+using namespace std;
 
 Depart::Depart() {
-	// TODO Auto-generated constructor stub
-
+	
 }
 
-Depart::~Depart() {
-	// TODO Auto-generated destructor stub
-}
+void Depart:: arreterSur(){
 
+}

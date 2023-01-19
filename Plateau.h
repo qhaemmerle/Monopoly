@@ -1,17 +1,14 @@
-/*
- * Plateau.h
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
 #ifndef PLATEAU_H_
 #define PLATEAU_H_
+#include "Case.h"
 
 class Plateau {
+private:
+	Case* case;
+
 public:
 	Plateau();
-	virtual ~Plateau();
+	void creerCases();
 };
 
 #endif /* PLATEAU_H_ */
