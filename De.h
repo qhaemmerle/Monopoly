@@ -14,7 +14,9 @@ using namespace std;
 class De {
 
 protected:
-	int valeur;
+	int valeur1;
+	int valeur2;
+	bool pair;
 
 public:
 	~De();
