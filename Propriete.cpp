@@ -6,8 +6,8 @@
 using namespace std;
 
 
-Propriete::Propriete(string n, Case suiv, Joueur prop, int l, int p, bool hy):
-        Case(n,suiv),
+Propriete::Propriete(string n, Joueur prop, int l, int p, bool hy):
+        Case(n),
         proprietaire(prop),
         loyer(l),
         hyp(hy),
