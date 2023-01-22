@@ -45,7 +45,7 @@ int Joueur::getPrison() {
         cout << "Souhaitez-vous sortir pour 50€ ?" << endl;
         string input;
         cin >> input;
-        if (input == "oui"){
+        if (input == "y"){
             this->debiter(50);
             this->setPrison(0);
             cout << "Vous sortez de prison et votre solde est de : " << this->solde << endl;

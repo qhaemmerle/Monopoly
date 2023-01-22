@@ -11,23 +11,33 @@ using namespace std;
 
 #include "De.h"
 
+De::De(int v1, int v2, bool p){
+	valeur1 = v1;
+	valeur2 = v2;
+	pair = p;
+}
+
 De::~De(){
 }
 
-int De::getValeur(){
+int De::getValeur1(){
+	return valeur1;
+}
+
+int De::getValeur2(){
+	return valeur2;
+}
+
+int De::getValeurDe(){
 	return valeur1 + valeur2;
 }
 
-int De::LancerDe(){
+void De::LancerDe(){
 
 	random_device rd; // obtain a random number from hardware
 	mt19937 gen(rd()); // seed the generator
 	uniform_int_distribution<> distr(1, 6); // define the range
 	this -> valeur1 = distr(gen);
-
-	random_device rd; // obtain a random number from hardware
-	mt19937 gen(rd()); // seed the generator
-	uniform_int_distribution<> distr(1, 6); // define the range
 	this -> valeur2 = distr(gen);
 }
 
