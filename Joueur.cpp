@@ -16,7 +16,7 @@ Joueur::Joueur(string nom, Pion p, Jeu* jeu, int solde){
 	this->solde = solde;
 	this->jeu = jeu;
 	this->prison = 0;
-	this->nb_possessions = 0;
+	this->nbPossessions = 0;
 
 }
 
@@ -40,8 +40,8 @@ const Jeu Joueur::getJeu(){ //Obtention du jeu en cours (dans le cas d'un jeu sa
 	return this->jeu;
 }
 
-int Joueur::getNb_possessions(){//Obtention des possessions du joueur (propriete, gare, etc)
-	return nb_possessions;
+int Joueur::getNbPossessions(){//Obtention des possessions du joueur (propriete, gare, etc)
+	return nbPossessions;
 }
 
 void Joueur::setNom(const string nom) { // Definition du nom du joueur
@@ -64,8 +64,8 @@ void Joueur::setPrison(int prison){//Definition de la valeur du nombre de tours 
 	this->prison = prison;
 }
 
-void Joueur::setNb_possessions(int nb){//Definition des possessions du joueur
-	this->nb_possession = nb;
+void Joueur::setNbPossessions(int nb){//Definition des possessions du joueur
+	this->nbPossessions = nb;
 }
 
 void Joueur::gestionPrison() { // Permet la gestion de la prision pour le joueur
@@ -103,7 +103,7 @@ void Joueur::debiter(int montant) {//Permet de debiter le solde d'un joueur d'un
 }
 
 bool Joueur::perdu(){
-	return (this->nb_possessions == 0 && solde < 0);
+	return (this->nbPossessions == 0 && solde < 0);
 }
 
 

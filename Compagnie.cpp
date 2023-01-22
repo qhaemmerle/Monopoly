@@ -7,39 +7,34 @@
 #include <iostream>
 using namespace std;
 
-Compagnie::Compagnie(string n, Joueur prop, int p, (&Compagnie)* g, bool hy):
+Compagnie::Compagnie(string n, Joueur* prop, int p, Compagnie* g[2], bool hy):
     Propriete(n, prop, p, hy),
     groupe(g){};
 
-void Compagnie::setGroupe((&Compagnie)* g)
-{
+void Compagnie::setGroupe(Compagnie* g[2]) {
     groupe = g;
 }
 
-void Compagnie::arretSur(Joueur j)
-{
-    Propriete::arretSur();
-    if (proprietaire != NULL && proprietaire.getNom() != j.getNom())
-    {
-        if(hyp)
-            int loyer = 0;
-        else
-        {
+void Compagnie::arretSur(Joueur j){
+    Propriete::arretSur(j);
+    int loyer = 0;
+    if (proprietaire != NULL && (*proprietaire).getNom() != j.getNom()){
+        if(hyp) loyer = 0;
+        else {
             int i = 0;
             int compt = 0;
-            while(prop and i < groupe.size())
-            {
+            while(i < 2) {
                 if((*groupe[i]).getproprietaire() == proprietaire)
                     compt = compt + 1;
                 i = i + 1;
             }
-            De d = De();
-            de = LancerDe();
-            if(compt == 1)
-                int loyer = 4 * de.getValeurD();
+            De de = De();
+            de.lancerDe();
+            if(compt == 1) loyer = 4 * de.getValeurDe();
             else
-                int loyer == 10 * de.getValeurD();
+                loyer = 10 * de.getValeurDe();
         }
         j.debiter(loyer);
-        proprietaire.crediter(loyer);
+        (*proprietaire).crediter(loyer);
+    }
 }

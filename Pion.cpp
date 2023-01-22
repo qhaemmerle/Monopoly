@@ -38,7 +38,7 @@ void Pion::deplacer(int n) {//Deplacement du pion
     else if(position + n - 40 != 0)
     {
         position = position + n - 40;
-        joueur.crediter(200);
+        joueur->crediter(200);
     }
     else
         position = 0;

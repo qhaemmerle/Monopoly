@@ -5,9 +5,9 @@ using namespace std;
 
 Plateau::Plateau() {
 	//création de toutes les cases
-    lesTerrains[21]=Terrain("La Jetée", NULL, 400, 0, false, [&lesTerrains[20],&lesTerrains[21]], [39,50,200,600,1400,1700,2000,200]);
+    lesTerrains[21] = Terrain("La Jetée", NULL, 400, 0, false, [&lesTerrains[20],&lesTerrains[21],&lesTerrains[20]], [39,50,200,600,1400,1700,2000,200]);
     lesTaxes[1]=Taxes("Cotisation BDS",100);
-    lesTerrains[20]=Terrain("Le Gymnase", NULL, 350, 0, false, [&lesTerrains[20],&lesTerrains[21]], [37,35,175,500,1100,1300,1500,200]);
+    lesTerrains[20]=Terrain("Le Gymnase", NULL, 350, 0, false, [&lesTerrains[20],&lesTerrains[21],&lesTerrains[20]], [37,35,175,500,1100,1300,1500,200]);
     lesChances[2]=Chance("Chance");
     lesGares[3]=Gare("TVP",NULL,200,[&lesGares[0],&lesGares[1],&lesGares[2],&lesGares[3]]);
     lesTerrains[19]=Terrain("Échanges Phocéens", NULL, 320, 0, false, [&lesTerrains[17],&lesTerrains[18],&lesTerrains[19]] , [34, 28,150,450,1000,1200,1400,200]);
@@ -41,9 +41,9 @@ Plateau::Plateau() {
     lesTerrains[2]=Terrain("La pièce",NULL,100,0,false,[&lesTerrains[2],&lesTerrains[3],&lesTerrains[4]],[6,6,30,90,270,400,550,50]);
     lesGares[0]=Gare("R2CM",NULL,200,[&lesGares[0],&lesGares[1],&lesGares[2],&lesGares[3]]);
     lesTaxes[0]=Taxes("Cotisation BDE",200);
-    lesTerrains[1]=Terrain("Médiathèque",NULL,60,0,false,[&lesTerrains[0],&lesTerrains[1]],[3,4,20,60,180,320,450,50]);
+    lesTerrains[1]=Terrain("Médiathèque",NULL,60,0,false,[&lesTerrains[0],&lesTerrains[1],&lesTerrains[0]],[3,4,20,60,180,320,450,50]);
     lesCommunautes[0]=Communaute("Caisse de Communauté");
-    lesTerrains[0]=Terrain("Grand Amphi",NULL,60,0,false,[&lesTerrains[0],&lesTerrains[1]],[1,2,10,30,90,160,250,50]);
+    lesTerrains[0]=Terrain("Grand Amphi",NULL,60,0,false,[&lesTerrains[0],&lesTerrains[1],&lesTerrains[0]],[1,2,10,30,90,160,250,50]);
     leDepart=Depart("Amphi JUL");
 
 

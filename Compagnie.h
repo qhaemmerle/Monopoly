@@ -9,13 +9,13 @@
 class Compagnie: public Propriete
 {
     public:
-        Compagnie(string n, Joueur prop = NULL, int p, (&Compagnie)* g, bool hy = false);
-        (&Compagnie)* getGroupe(){return groupe;};
-        void setGroupe(&(Companie)* g);
-        void arretSur();
+        Compagnie(string n, Joueur* prop = NULL, int p = 0, Compagnie* g[2], bool hy = false);
+        Compagnie** getGroupe(){return groupe;};
+        void setGroupe(Compagnie* g[2]);
+        void arretSur(Joueur j);
 
     private:
-        (&Compagnie)* groupe
+        Compagnie* groupe[2];
 };
 
 #endif // COMPAGNIE_H

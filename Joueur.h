@@ -26,7 +26,7 @@ private:
 	Pion pion;
 	Jeu* jeu;
 	int prison;
-	int nb_possessions
+	int nbPossessions;
 
 protected:
     int solde;
@@ -41,23 +41,23 @@ public:
 	int getSolde() const;
 	int getPrison();
 	const Jeu getJeu();
-	int getNb_possessions();
+	int getNbPossessions();
 
 	void setNom(const string nom);
 	void setPion(Pion pion);
 	void setSolde(int solde);
 	void setJeu(Jeu jeu);
 	void setPrison(int prison);
-	void setNb_possessions(int nb);
+	void setNbPossessions(int nb);
 
 
 	void gestionPrison();
 	void jouer(int nbCases);
 	void crediter(int montant);
 	void debiter(int montant);
-	bool perdu(){return (this->nbPossessions() == 0 && solde < 0);}
+	bool perdu();
 
-	void afficheSolde()
+	void afficheSolde();
 
 
 	void affichePion(){

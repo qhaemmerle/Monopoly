@@ -9,7 +9,7 @@ class Chance : public Case{
 public:
 	Chance():Case("Chance"){};
 	//void initCartesChance();
-	void arreterSur(Joueur* j);
+	void arretSur(Joueur j);
 };
 
 #endif /* CHANCE_H_ */

@@ -13,7 +13,7 @@ class Taxes: public Case
         void arretSur(Joueur j);
 
     private:
-        int montant
+        int montant;
 };
 
 #endif // TAXES_H
