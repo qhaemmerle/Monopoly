@@ -4,10 +4,7 @@
 #include <string>
 using namespace std;
 
-Communaute::Communaute() {
-	
-}
+void Communaute :: arreterSur(Joueur j){
 
-void Communaute :: arreterSur(){
 
 }
