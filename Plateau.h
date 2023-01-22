@@ -13,6 +13,7 @@ private:
     Communaute [3] lesCommunautes
     Chance [3] lesChances
     Case [40] liste_case
+    Taxes [2] lesTaxes
 
 public:
 	Plateau();
