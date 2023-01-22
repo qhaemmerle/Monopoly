@@ -6,12 +6,11 @@
 #include <iostream>
 using namespace std;
 
-Terrain::Terrain(string n, Case suiv, Joueur prop, int l, int p, int m, bool h, Terrain* q, string c, int* ls, bool hy):
-    Propriete(n, suiv, prop, l, p, hy),
+Terrain::Terrain(string n, Joueur prop, int p, int m, bool h, (&Terrain)* q, int* ls, bool hy):
+    Propriete(n, prop, p, hy),
     maison(m),
     hotel(h),
     quartier(q),
-    couleur(c),
     loyers(ls){};
 
 void Terrain::setMaison(int m)
@@ -24,7 +23,7 @@ void Terrain::setHotel(bool h)
     hotel = h;
 }
 
-void Terrain::setQuartier(Terrain* q)
+void Terrain::setQuartier((&Terrain)* q)
 {
     quartier = q;
 }
@@ -45,7 +44,7 @@ void Terrain::achatImmo(int nombre)
     bool prop = true;
     while(prop and i < quartier.size())
     {
-        if(i.getproprietaire() != proprietaire)
+        if((*quartier[i]).getproprietaire() != proprietaire)
             prop = false;
         i = i + 1;
     }
@@ -74,21 +73,21 @@ void Terrain::arretSur(Joueur j)
         if(hotel)
             int loyer = loyers[8];
         else if(maison != 0)
-            int loyer = loyers[3 + maison];
+            int loyer = loyers[1 + maison];
         else
         {
             int i = 0;
             bool prop = true;
             while(prop and i < quartier.size())
             {
-                if(i.getproprietaire() != proprietaire)
+                if((*quartier[i]).getproprietaire() != proprietaire)
                     prop = false;
                 i = i + 1;
             }
             if(prop)
-                int loyer = loyers[3] * 2;
+                int loyer = loyers[1] * 2;
             else
-                int loyer = loyers[3];
+                int loyer = loyers[1];
         }
         j.debiter(loyer);
         proprietaire.crediter(loyer);
@@ -99,12 +98,12 @@ void Terrain::hypotheque()
     Propriete::hypotheque();
     if(hotel)
     {
-        proprietaire.crediter(5 * loyers[9] / 2);
+        proprietaire.crediter(5 * loyers[7] / 2);
         hotel = false;
     }
     else if(maison != 0)
     {
-        proprietaire.crediter(maison * loyers[9] / 2);
+        proprietaire.crediter(maison * loyers[7] / 2);
         maison = 0;
     }
 }
