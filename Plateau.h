@@ -14,6 +14,7 @@ private:
     Chance [3] lesChances
     Case [40] liste_case
     Taxes [2] lesTaxes
+    Depart leDepart
 
 public:
 	Plateau();
