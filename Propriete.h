@@ -9,20 +9,20 @@ using namespace std;
 class Propriete: public Case
 {
     public:
-        Propriete(string n, Case suiv, Joueur prop = NULL, int p, bool hy = false);
+        Propriete(string n, Joueur* prop = NULL, int p = 0, bool hy = false);
         void arretSur(Joueur j);
-        Joueur getproprietaire(){return proprietaire;};
+        Joueur* getproprietaire(){return proprietaire;};
         int getPrixAchat(){return prixAchat;};
         bool gethyp(){return hyp;};
-        void setProprietaire(Joueur prop);
+        void setProprietaire(Joueur* prop);
         void setPrixAchat(int p);
         void sethyp(bool hy);
         void hypotheque();
 
     protected:
-        Joueur proprietaire;
+        Joueur* proprietaire;
         int prixAchat;
-        bool hyp
+        bool hyp;
 };
 
 #endif // PROPRIETE_H

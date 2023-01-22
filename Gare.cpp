@@ -6,34 +6,36 @@
 #include <iostream>
 using namespace std;
 
-Gare::Gare(string n, Case suiv, Joueur prop, int l, int p, Gare* g, bool hy):
-    Propriete(n, suiv, prop, l, p, hy),
+Gare::Gare(string n, Joueur* prop, int p, Gare* g[4], bool hy):
+    Propriete(n, prop, p, hy),
     groupe(g){};
 
-void Gare::setGroupe(Gare* g)
+void Gare::setGroupe(Gare* g[4])
 {
     groupe = g;
 }
 
 void Gare::arretSur(Joueur j)
 {
-    Propriete::arretSur();
-    if (proprietaire != NULL && proprietaire.getNom() != j.getNom())
+    Propriete::arretSur(j);
+    int loyer = 0;
+    if (proprietaire != NULL && (*proprietaire).getNom() != j.getNom())
     {
         if(hyp)
-            int loyer = 0;
+            loyer = 0;
         else
         {
             int i = 0;
             int compt = 0;
-            while(prop and i < groupe.size())
+            while(i < 4)
             {
-                if(i.getproprietaire() == proprietaire)
+                if((*groupe[i]).getproprietaire() == proprietaire)
                     compt = compt + 1;
                 i = i + 1;
             }
-            int loyer = 25 * (2 ^ (compt - 1))
+            loyer = 25 * (2 ^ (compt - 1));
         }
         j.debiter(loyer);
-        proprietaire.crediter(loyer);
+        (*proprietaire).crediter(loyer);
+    }
 }

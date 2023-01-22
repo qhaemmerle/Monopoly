@@ -11,7 +11,7 @@
 
 
 Jeu::Jeu(int nbJoueurs) {
-	Joueur joueur[nbJoueurs]
+	Joueur joueur[nbJoueurs];
 	tourdejeu = 0;
 	this->nbJoueurs = nbJoueurs;
 	plateau = Plateau();
@@ -62,7 +62,7 @@ void Jeu::tourDeJeu() {
 		Case* liste_cases = plateau.getListe_cases();
 		Case emplacement = liste_cases[position];
 		cout << "Vous êtes tombé sur la case "<< emplacement.getNom();
-		emplacement.arretSur();
+		emplacement.arretSur(joueur[i]);
 
 		if(de.doublette()) i--;	// Si ça marche pas, mettre des accolades.
 	}

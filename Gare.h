@@ -9,13 +9,13 @@
 class Gare: public Propriete
 {
     public:
-        Gare(string n, Case suiv, Joueur prop = NULL, int l, int p, Gare* g, string c, int* ls, bool hy = false);
+        Gare(string n, Joueur* prop = NULL, int p, Gare* g[4], bool hy = false);
         Gare* getGroupe(){return groupe;};
-        void setGroupe(Gare* g);
-        void arretSur();
+        void setGroupe(Gare* g[4]);
+        void arretSur(Joueur j);
 
     private:
-        Gare* groupe
+        Gare* groupe[4];
 };
 
 #endif // GARE_H

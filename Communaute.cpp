@@ -59,15 +59,15 @@ void Communaute :: arreterSur(Joueur* j){
     }
     else if(i==10){
         cout << "Allez en TP C++." << endl;
-        j->getPion().setPosition(30); //gestion de la prison immédiate?
+        j->setPosition(30); //gestion de la prison immédiate?
     }
     else if(i==11){
         cout << "Avancez jusqu'à la case Amphi Jul." << endl;
-        j->getPion().setPosition(0); //gestion case Départ
+        j->setPosition(0); //gestion case Départ
     }
     else if(i==12){
         cout << "Retournez au Grand Amphi." << endl;
-        j->getPion().setPosition(1);
+        j->setPosition(1);
     }
     else if(i==13){
         cout << "Vous êtes libéré de TP C++. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée." << endl;
