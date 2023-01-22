@@ -8,7 +8,7 @@
 #ifndef PION_H_
 #define PION_H_
 
-// #include "Case.h"
+#include "Case.h"
 
 
 using namespace std;
@@ -16,32 +16,27 @@ using namespace std;
 class Joueur;
 class Pion {
 private:
-    Joueur* joueur;
-    // Case* position;
-    string nom; // nom du pion sur le plateau
+	Joueur* joueur;
+	Case* position;
+	string nom;
 public:
-    Pion(string nom="");
+	Pion(string nom="");
 
-    Joueur* getJoueur();
-    void setJoueur(Joueur& joueur);
+	Joueur* getJoueur();
+	void setJoueur(Joueur joueur);
 
-    // Case* getPosition();
-    // void setPosition( Case* position);
+	Case* getPosition();
+	void setPosition( Case* position);
 
-    const string &getNom() const;
-    void setNom(const string &nom);
+	const string getNom() const;
+	void setNom(const string &nom);
 
-    // Case* deplacer(int n);
+	Case* deplacer(int n);
 
-    // Case* goToPrison();
+	Case* goToPrison();
 
-    void affiche(){
+	void affiche(){
 		cout << this->nom;
-    }
-
-    friend ostream& operator<< (ostream& stream, Pion p){
-    	p.affiche();
-    	return stream;
     }
 };
 

@@ -18,9 +18,6 @@ Possessions::Possessions(Propriete* p) {
 	suivante = NULL;
 }
 
-Possessions::~Possessions() {
-	// TODO Auto-generated destructor stub
-}
 
 void Possessions::addPossession(Propriete* p){
 	if (possession == NULL){

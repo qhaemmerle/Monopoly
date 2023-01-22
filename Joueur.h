@@ -36,26 +36,26 @@ public:
 	Joueur(string nom ,Pion pion, Jeu* jeu = NULL, int solde = 1500);
 
 	void operation();
-	const string &getNom() const;
+	const string getNom() const;
 	Pion getPion();
 	int getSolde() const;
-	const Jeu &getJeu() const{return *this->jeu;}
+	const Jeu getJeu()
 	int getPrison();
-	Possessions getPossessions(){return p;}
+	Possessions getPossessions();
 
-	void setNom(const string &nom);
-	void setPion(Pion& pion);
+	void setNom(const string nom);
+	void setPion(Pion pion);
 	void setSolde(int solde);
-	void setJeu(Jeu* jeu){this->jeu = jeu;}
-	void setPrison(int prison){ this->prison = prison;}
-	void setPossessions(Possessions& p){this->p = p;}
+	void setJeu(Jeu jeu);
+	void setPrison(int prison);
+	void setPossessions(Possessions& p);
 
 	void jouer(int nbCases);
 	void crediter(const int montant);
 	void debiter(const int montant);
-	int nbPossessions(){return this->p.getNbPossessions();}
-	void addPossession(Propriete* p){this->p.addPossession(p);}
-	void removePossession(Propriete* p){this->p = *this->p.removePossession(p);}
+	int nbPossessions();
+	void addPossession(Propriete* p);
+	void removePossession(Propriete* p);
 	void vendPossession();
 	bool perdu(){return (this->nbPossessions() == 0 && solde < 0);}
 

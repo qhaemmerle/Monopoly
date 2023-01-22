@@ -18,7 +18,6 @@ private :
 public:
 	Possessions();
 	Possessions(Propriete* p);
-	virtual ~Possessions();
 	Propriete* getPossession(){return possession;}
 	void addPossession(Propriete* p);
 	Possessions* removePossession(Propriete* p);

@@ -8,10 +8,7 @@
 #include "Joueur.h"
 #include "Jeu.h"
 #include "Propriete.h"
-
-
-Joueur::Joueur(){
-}
+#include "Possessions.h"
 
 Joueur::Joueur(string nom, Pion p, Jeu* jeu, int solde){
 	this->nom = nom;
@@ -23,79 +20,109 @@ Joueur::Joueur(string nom, Pion p, Jeu* jeu, int solde){
 
 }
 
-const string &Joueur::getNom() const {
+const string Joueur::getNom() const { // Obtention du nom du joueur
     return nom;
 }
 
-Pion Joueur::getPion() {
+Pion Joueur::getPion() { // Obtention du pion associe au joueur
     return pion;
 }
 
-int Joueur::getSolde() const {
+int Joueur::getSolde() const { // Obtention du solde du joueur
     return solde;
 }
 
-int Joueur::getPrison() {
+const Jeu Joueur::getJeu(){ //Obtention du jeu en cours (dans le cas d'un jeu sauvegarde)
+	return this->jeu;
+}
+
+int Joueur::getPrison() { // Permet la gestion de la prision pour le joueur
     cout << prison << endl;
-    if ( prison == 0 || prison > 3 ){ // si joueur en prison depuis 3 tours
-        this->setPrison(0);
+    if ( prison == 0 || prison > 3 ){ // Si le joueur est en prison depuis plus de trois tours
+        this->setPrison(0); // Son nombre de tours successifs en prison repasse a 0
     }
     else {
-        this->setPrison(prison+1);
-        cout << "Souhaitez-vous sortir pour 50€ ?" << endl;
+        this->setPrison(prison+1); // Sinon, l'atribut prison prend la valeur prison+1 (le joueur passe un tour supplémentaire en prison)
+        cout << "Souhaitez-vous sortir pour 50€ ?" << endl; // On propose au joueur de sortir de prison pour 50€
         string input;
         cin >> input;
-        if (input == "y"){
-            this->debiter(50);
-            this->setPrison(0);
-            cout << "Vous sortez de prison et votre solde est de : " << this->solde << endl;
-        }
+        if (input == "y"){ // Si le joueur souhaite sortir en payant, il répond "y"
+            this->debiter(50); // Son solde est debite de 50€
+            this->setPrison(0); // Son nombre de tours successifs en prison passe a 0
+            cout << "Vous sortez de prison et votre solde est de : " << this->solde << " €" << endl;
+        }			// On indique au joueur qu'il est sorti et on affiche son nouveau solde.
     }
     return prison;
 }
 
-void Joueur::setNom(const string &nom) {
+Possessions Joueur::getPossessions(){//Obtention des possessions du joueur (propriete, gare, etc)
+	return p;
+}
+
+void Joueur::setNom(const string nom) { // Definition du nom du joueur
     this -> nom = nom;
 }
 
-void Joueur::setPion(Pion& pion) {
+void Joueur::setPion(Pion pion) { //Definition du pion associe au joueur
 	this -> pion = pion;
 }
 
-void Joueur::setSolde(int solde) {
+void Joueur::setSolde(int solde) { //Definition du solde du joueur
 	this -> solde = solde;
 }
 
-void Joueur::jouer(int nbCases) {
-	pion.deplacer(nbCases)->arretSur(this);
+void Joueur::setJeu(Jeu jeu){//Definition du jeu en cours
+	this->jeu = jeu;
 }
 
-void Joueur::crediter(int montant) {
+void Joueur::setPrison(int prison){//Definition de la valeur du nombre de tours consecutifs en prison
+	this->prison = prison;
+}
+
+void Joueur::setPossessions(Possessions& p){//Definition des possessions du joueur
+	this->p = p;
+}
+
+void Joueur::jouer(int nbCases) { //Permet le deplacement du joueur via le deplacement de son pion
+	pion.deplacer(nbCases)->arretSur(this); //On deplace le pion d'un nombre de case defini et on definit que le joueur s'arrete sur la case associee
+}
+
+void Joueur::crediter(int montant) {//Permet de crediter le solde du joueur d'un montant fixe
     this->solde = solde + montant;
 }
 
-void Joueur::debiter(int montant) {
-	if (solde - montant >= 0){
-		this->solde = solde - montant;
+void Joueur::debiter(int montant) {//Permet de debiter le solde d'un joueur d'un montant donne
+	if (solde - montant >= 0){ //Premier cas de figure : le joueur a les moyens de payer
+		this->solde = solde - montant;//On retranche simplement le montant au solde
 	}
 	else{
-		this->solde =solde - montant;
-		// on paye et apres on vend jusqu'a etre positif
-		while (solde < 0 && nbPossessions() > 0){
+		this->solde = solde - montant; //Si le joueur n'a pas les moyens de payer, on commence par retrancher le montant a son solde
+		while (solde < 0 && nbPossessions() > 0){ //Puis on vend ses possessions jusqu'a avoir un solde positif
 			this->vendPossession();
 		}
 	}
 }
 
-/* void Joueur::vendPossession(){
+int Joueur::nbPossessions(){
+	return this->p.getNbPossessions();
+}
+void Joueur::addPossession(Propriete* p){
+	this->p.addPossession(p);
+}
+void Joueur::removePossession(Propriete* p){
+	this->p = *this->p.removePossession(p);
+}
+
+void Joueur::vendPossession(){
 	this->crediter(this->p.getPossession()->getPrixAchat());
 	this->p.getPossession()->setPossession(NULL);
 	this->p = *this->p.removePossession(this->p.getPossession());
-}*/
-
-void Joueur::operation() {
-
 }
+
+bool Joueur::perdu(){
+	return (this->nbPossessions() == 0 && solde < 0);
+}
+
 
 void Joueur::afficheSolde(){
 	cout << nom << ", votre solde est de " << solde << " €" << endl;
