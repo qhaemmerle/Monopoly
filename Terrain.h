@@ -9,16 +9,14 @@
 class Terrain: public Propriete
 {
     public:
-        Terrain(string n, Case suiv, Joueur prop = NULL, int l, int p, int m = 0, bool h = false, Terrain* q, string c, int* ls, bool hy = false);
+        Terrain(string n, Joueur prop = NULL, int p, int m = 0, bool h = false, (&Terrain)* q, int* ls, bool hy = false);
         int getMaison(){return maison;};
         bool getHotel(){return hotel;};
-        Terrain* getQuartier(){return quartier;};
-        string getCouleur(){return couleur;};
+        (&Terrain)* getQuartier(){return quartier;};
         int* getLoyers(){return loyers;};
         void setMaison(int m);
         void setHotel(bool h);
-        void setQuartier(Terrain* q);
-        void setCouleur(string c);
+        void setQuartier((&Terrain)* q);
         void setLoyers(int* ls);
         void achatImmo(int nombre);
         void arretSur();
@@ -27,8 +25,7 @@ class Terrain: public Propriete
     private:
         int maison
         bool hotel
-        Terrain* quartier
-        string couleur
+        (&Terrain)* quartier
         int* loyers
 
 };

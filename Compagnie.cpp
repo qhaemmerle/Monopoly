@@ -7,16 +7,16 @@
 #include <iostream>
 using namespace std;
 
-Compagnie::Compagnie(string n, Case suiv, Joueur prop, int l, int p, Compagnie* g, bool hy):
-    Propriete(n, suiv, prop, l, p, hy),
+Compagnie::Compagnie(string n, Joueur prop, int p, (&Compagnie)* g, bool hy):
+    Propriete(n, prop, p, hy),
     groupe(g){};
 
-void Gare::setGroupe(Compagnie* g)
+void Compagnie::setGroupe((&Compagnie)* g)
 {
     groupe = g;
 }
 
-void Gare::arretSur(Joueur j)
+void Compagnie::arretSur(Joueur j)
 {
     Propriete::arretSur();
     if (proprietaire != NULL && proprietaire.getNom() != j.getNom())
@@ -29,7 +29,7 @@ void Gare::arretSur(Joueur j)
             int compt = 0;
             while(prop and i < groupe.size())
             {
-                if(i.getproprietaire() == proprietaire)
+                if((*groupe[i]).getproprietaire() == proprietaire)
                     compt = compt + 1;
                 i = i + 1;
             }

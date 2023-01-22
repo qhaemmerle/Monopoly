@@ -6,10 +6,9 @@
 using namespace std;
 
 
-Propriete::Propriete(string n, Joueur prop, int l, int p, bool hy):
+Propriete::Propriete(string n, Joueur prop, int p, bool hy):
         Case(n),
         proprietaire(prop),
-        loyer(l),
         hyp(hy),
         prixAchat(p){};
 
