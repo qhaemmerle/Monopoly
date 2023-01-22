@@ -26,7 +26,7 @@ private:
     Pion pion;
     Jeu* jeu;
     int prison; // si on va en prison
-//    Possessions p;
+//    Propriete p;
 
 protected:
     int solde;

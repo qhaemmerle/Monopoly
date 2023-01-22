@@ -89,7 +89,7 @@ void Joueur::debiter(int montant) {
 
 /* void Joueur::vendPossession(){
 	this->crediter(this->p.getPossession()->getPrixAchat());
-	this->p.getPossession()->setProprietaire(NULL);
+	this->p.getPossession()->setPossession(NULL);
 	this->p = *this->p.removePossession(this->p.getPossession());
 }*/
 
