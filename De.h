@@ -20,7 +20,6 @@ protected:
 
 public:
 	De(int v1=0, int v2=0, bool p = false);
-	~De();
 	int getValeur1();
 	int getValeur2();
 	int getValeurDe();

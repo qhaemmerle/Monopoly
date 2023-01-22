@@ -17,9 +17,6 @@ De::De(int v1, int v2, bool p){
 	pair = p;
 }
 
-De::~De(){
-}
-
 int De::getValeur1(){
 	return valeur1;
 }

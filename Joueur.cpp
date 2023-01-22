@@ -98,5 +98,5 @@ void Joueur::operation() {
 }
 
 void Joueur::afficheSolde(){
-	cout <<this->nom <<" a "<< this->solde << " €" << endl;
+	cout << nom << ", votre solde est de " << solde << " €" << endl;
 }
