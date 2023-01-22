@@ -11,7 +11,7 @@ using namespace std;
     //identifier ce que doit faire chaque carte
 //}
 
-void Chance :: arreterSur(Joueur j){
+void Chance :: arreterSur(Joueur* j){
     //pioche : tire un nombre aléatoire entre 0 et 15
 	srand((unsigned) time(NULL));
     int i = (rand() % 16);

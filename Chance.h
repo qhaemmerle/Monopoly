@@ -10,6 +10,6 @@ public:
 	Chance():Case("Chance"){};
 	//void initCartesChance();
 	void arreterSur(Joueur j);
-}
+};
 
 #endif /* CHANCE_H_ */

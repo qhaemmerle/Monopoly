@@ -11,7 +11,7 @@ using namespace std;
     //identifier ce que doit faire chaque carte
 //}
 
-void Communaute :: arreterSur(Joueur j){
+void Communaute :: arreterSur(Joueur* j){
      //pioche : tire un nombre aléatoire entre 0 et 13
 	srand((unsigned) time(NULL));
     int i = (rand() % 14);
