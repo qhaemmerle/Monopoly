@@ -7,14 +7,15 @@
 
 class Plateau {
 private:
-    Terrain [22] lesTerrains
-    Gare [4] lesGares
-    Compagnie [2] lesCompagnies
-    Communaute [3] lesCommunautes
-    Chance [3] lesChances
-    Case [40] liste_case
-    Taxes [2] lesTaxes
-    Depart leDepart
+    Terrain [22] lesTerrains;
+    Gare [4] lesGares;
+    Compagnie [2] lesCompagnies;
+    Communaute [3] lesCommunautes;
+    Chance [3] lesChances;
+    Case [40] liste_case;
+    Taxes [2] lesTaxes;
+    Depart leDepart;
+    Prison [2] lesPrisons;
 
 public:
 	Plateau();

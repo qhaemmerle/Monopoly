@@ -5,11 +5,10 @@
 class Depart : public Case
 {
 private:
-	string nom;
 
 public:
 	Depart();
-	void arreterSur();
+	void arreteSur();
 };
 
 #endif /* DEPART_H_ */

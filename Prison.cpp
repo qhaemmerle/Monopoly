@@ -4,10 +4,11 @@
 #include <string>
 using namespace std;
 
-Prison::Prison() {
+Prison::Prison(string n):
+    Case(n){};
 
-}
-
-void Prison :: arreterSur(){
-
+void Prison :: arreteSur(Joueur j){
+    if(nom == "Allez en TP C++")
+        j.setPrison(1);
+        (j.getPion()).setPosition(10);
 }

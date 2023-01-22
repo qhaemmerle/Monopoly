@@ -1,10 +1,3 @@
-/*
- * Pion.h
- *
- *  Created on: 2 janv. 2023
- *      Author: theosaulais
- */
-
 #ifndef PION_H_
 #define PION_H_
 
@@ -17,7 +10,7 @@ class Joueur;
 class Pion {
 private:
 	Joueur* joueur;
-	Case* position;
+	int position;
 	string nom;
 public:
 	Pion(string nom="");
@@ -26,14 +19,15 @@ public:
 	void setJoueur(Joueur joueur);
 
 	Case* getPosition();
-	void setPosition( Case* position);
+	void setPosition(int position);
 
 	const string getNom() const;
 	void setNom(const string &nom);
 
-	Case* deplacer(int n);
+	void deplacer(int nb_de_case);
+	void deplacerA(int num_de_case)
 
-	Case* goToPrison();
+	int goToPrison();
 
 	void affiche(){
 		cout << this->nom;

@@ -9,6 +9,6 @@ Depart::Depart() {
 	nom = "Amphi JUL";
 }
 
-void Depart:: arreterSur(Joueur j){
+void Depart:: arreteSur(Joueur j){
     j.crediter(400);
 }
