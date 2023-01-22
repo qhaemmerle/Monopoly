@@ -51,8 +51,8 @@ public:
 	void setPossessions(Possessions& p);
 
 	void jouer(int nbCases);
-	void crediter(const int montant);
-	void debiter(const int montant);
+	void crediter(int montant);
+	void debiter(int montant);
 	int nbPossessions();
 	void addPossession(Propriete* p);
 	void removePossession(Propriete* p);
