@@ -8,8 +8,16 @@
 #ifndef JEU_H_
 #define JEU_H_
 
-#include "Pl bvv bg vb  ateau.h"
-#include "Joueur.h";
+#include <iostream>
+#include <string>
+
+#include "Plateau.h"
+#include "Pion.h"
+#include "Joueur.h"
+#include "Propriete.h"
+#include "De.h"
+
+using namespace std;
 
 class Jeu {
 
@@ -17,7 +25,8 @@ private:
 	int tourdejeu;
 	int nbJoueurs;
 	Plateau plateau;
-	Joueur* joueurs;
+	Joueur joueur[];
+	De de;
 
 public:
 	Jeu(int nbJoueurs=2);
@@ -25,6 +34,17 @@ public:
 	int compteur();
 	void lancePartie();
 
+	void setTour(int tour) {
+		this->tourdejeu = tour;
+	}
+	void setPlateau(Plateau plateau) {
+			this->plateau = plateau;
+		}
+	void setJoueurs(Joueur joueur[]) {
+			this->joueur = joueur;
+		} // Vérifier si pas d'erreur de type tableau.
+
+	void tourDeJeu();
 
 };
 
