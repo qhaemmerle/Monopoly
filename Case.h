@@ -1,17 +1,24 @@
-/*
- * Case.h
- *
- *  Created on: 3 janv. 2023
- *      Author: ikebbab
- */
-
 #ifndef CASE_H_
 #define CASE_H_
 
+#include <iostream>
+#include <string>
+#include "Joueur.h" //je ne sais pas si il faut utiliser cela ou si "class Joueur;" uniquement suffit
+
 class Case {
+protected:
+	string nom
 public:
 	Case();
-	virtual ~Case();
-};
+	Case(string n);
+	
+	string getNom();
+        
+	void setNom(string n);
+	
+	void affiche();
+
+	virtual void arreterSur(Joueur j);
+}
 
 #endif /* CASE_H_ */

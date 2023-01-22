@@ -3,12 +3,22 @@
 #include <string>
 using namespace std;
 
-Case::Case() {
-	// TODO Auto-generated constructor stub
-
+Case::Case(){
+	this->nom = "";
 }
 
-Case::~Case() {
-	// TODO Auto-generated destructor stub
+Case::Case(string n){
+	this->nom = n;
 }
 
+Case::string getNom(){
+    return this->nom;
+}
+
+Case::void setNom(string n){
+    this->nom = n;
+}
+
+Case :: void affiche(){
+    	cout << this->nom ;
+}
