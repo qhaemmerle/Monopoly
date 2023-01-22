@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 #include <string>
-#include "Joueur.h" //je ne sais pas si il faut utiliser cela ou si "class Joueur;" uniquement suffit
+#include "Joueur.h"
 
 class Case {
 protected:
