@@ -11,14 +11,14 @@ Case::Case(string n){
 	this->nom = n;
 }
 
-Case::string getNom(){
+string Case:: getNom(){
     return this->nom;
 }
 
-Case::void setNom(string n){
+void Case::setNom(string n){
     this->nom = n;
 }
 
-Case :: void affiche(){
+void Case :: affiche(){
     	cout << this->nom ;
 }
