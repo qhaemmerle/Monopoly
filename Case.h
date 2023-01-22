@@ -19,7 +19,7 @@ public:
 
 	void affiche();
 
-	virtual void arreterSur(Joueur j);
+	virtual void arreterSur(Joueur* j);
 };
 
 #endif /* CASE_H_ */
