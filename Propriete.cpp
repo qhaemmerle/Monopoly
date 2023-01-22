@@ -43,6 +43,7 @@ void Propriete::arretSur(Joueur j)
         {
             j.debiter(prixAchat);
             proprietaire = j;
+            j.ajoutPossession;
         }
     }
 }
@@ -50,5 +51,6 @@ void Propriete::arretSur(Joueur j)
 void Propriete::hypotheque()
 {
     hyp = true;
+    proprietaire.retraitPossession(1);
     proprietaire.crediter(loyers[2] / 2);
 }
