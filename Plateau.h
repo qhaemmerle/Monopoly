@@ -16,6 +16,7 @@ private:
     Taxes [2] lesTaxes;
     Depart leDepart;
     Prison [2] lesPrisons;
+    Parc leParc;
 
 public:
 	Plateau();
