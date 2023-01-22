@@ -25,7 +25,7 @@ private:
     string nom;
     Pion pion;
     Jeu* jeu;
-    int prison; // si on vas en prison
+    int prison; // si on va en prison
 //    Possessions p;
 
 protected:
@@ -65,9 +65,9 @@ public:
 
     void afficheSolde();
 
-    void affiche(){
-    	cout << nom << ", votre solde est " << solde << " $";
-    }
+//    void affiche(){
+//    	cout << nom << ", votre solde est " << solde << " $";
+//    }
     void affichePion(){
     	cout << &pion;
     }
