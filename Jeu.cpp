@@ -1,7 +1,7 @@
 /*
  * Jeu.cpp
  *
- *  Created on: 19 janv. 2023
+ *  Created on: 09 janv. 2023
  *      Author: quent
  */
 
@@ -11,11 +11,12 @@
 
 
 Jeu::Jeu(int nbJoueurs) {
-	this-> tourdejeu = 0;
-	this-> nbJoueurs = nbJoueurs;
-	this-> plateau = Plateau();
-	this-> joueur = Joueur[nbJoueurs];
-	this-> de = De();
+	Joueur joueur[nbJoueurs]
+	tourdejeu = 0;
+	this->nbJoueurs = nbJoueurs;
+	plateau = Plateau();
+	this-> joueur = joueur;
+	de = De();
 }
 
 int Jeu::compteur() {
@@ -23,9 +24,6 @@ int Jeu::compteur() {
 }
 
 void Jeu::lancePartie() {
-
-	Jeu* pointeurJeu = this;
-	int solde = 1500;
 
 	Joueur joueur[nbJoueurs];
 	for(int i=0; i<nbJoueurs; i++) {
@@ -40,8 +38,13 @@ void Jeu::lancePartie() {
 		joueur[i].setPion(pion);
 	}
 	this->joueur = joueur;
-	this->plateau = Plateau();
-	this->de = De();
+	plateau = Plateau();
+	de = De();
+
+	while(this->finPartie() == false){
+		this->tourDeJeu();
+		tourdejeu = tourdejeu + 1;
+	}
 
 	// Créer les paquets de cartes en les mélangeant.
 
@@ -50,11 +53,27 @@ void Jeu::lancePartie() {
 void Jeu::tourDeJeu() {
 
 	for(int i=0; i<nbJoueurs; i++) {
-		if(this->joueur[i].testPerdu == true) continue;
-		this->de.lancerDe();
-		if(this->de.doublette()) i--;	// Si ça marche pas, mettre des accolades.
+		if(joueur[i].perdu) continue;
+		joueur[i].gestionPrison();
+
+		de.lancerDe();
+		joueur->pion.deplacer(de.valeur1 + de.valeur2);
+		int position = joueur->pion.getPosition();
+		Case* liste_cases = plateau.getListe_cases();
+		Case emplacement = liste_cases[position];
+		cout << "Vous êtes tombé sur la case "<< emplacement.getNom();
+		emplacement.arretSur();
+
+		if(de.doublette()) i--;	// Si ça marche pas, mettre des accolades.
 	}
 }
 
+bool Jeu::finPartie() {
+	int joueursRestants = nbJoueurs;
+	for(int i=0; nbJoueurs; i++) {
+		if(joueur[i].perdu) joueursRestants = joueursRestants - 1;
+	}
+	return (joueur < 2);
+}
 
 

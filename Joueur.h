@@ -39,8 +39,9 @@ public:
 	const string getNom() const;
 	Pion getPion();
 	int getSolde() const;
-	const Jeu getJeu()
 	int getPrison();
+	const Jeu getJeu();
+
 	Possessions getPossessions();
 
 	void setNom(const string nom);
@@ -50,6 +51,7 @@ public:
 	void setPrison(int prison);
 	void setPossessions(Possessions& p);
 
+	void gestionPrison();
 	void jouer(int nbCases);
 	void crediter(int montant);
 	void debiter(int montant);

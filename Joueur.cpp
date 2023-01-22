@@ -32,27 +32,12 @@ int Joueur::getSolde() const { // Obtention du solde du joueur
     return solde;
 }
 
-const Jeu Joueur::getJeu(){ //Obtention du jeu en cours (dans le cas d'un jeu sauvegarde)
-	return this->jeu;
+int Joueur::getPrison() {
+	return prison;
 }
 
-int Joueur::getPrison() { // Permet la gestion de la prision pour le joueur
-    cout << prison << endl;
-    if ( prison == 0 || prison > 3 ){ // Si le joueur est en prison depuis plus de trois tours
-        this->setPrison(0); // Son nombre de tours successifs en prison repasse a 0
-    }
-    else {
-        this->setPrison(prison+1); // Sinon, l'atribut prison prend la valeur prison+1 (le joueur passe un tour supplémentaire en prison)
-        cout << "Souhaitez-vous sortir pour 50€ ?" << endl; // On propose au joueur de sortir de prison pour 50€
-        string input;
-        cin >> input;
-        if (input == "y"){ // Si le joueur souhaite sortir en payant, il répond "y"
-            this->debiter(50); // Son solde est debite de 50€
-            this->setPrison(0); // Son nombre de tours successifs en prison passe a 0
-            cout << "Vous sortez de prison et votre solde est de : " << this->solde << " €" << endl;
-        }			// On indique au joueur qu'il est sorti et on affiche son nouveau solde.
-    }
-    return prison;
+const Jeu Joueur::getJeu(){ //Obtention du jeu en cours (dans le cas d'un jeu sauvegarde)
+	return this->jeu;
 }
 
 Possessions Joueur::getPossessions(){//Obtention des possessions du joueur (propriete, gare, etc)
@@ -81,6 +66,24 @@ void Joueur::setPrison(int prison){//Definition de la valeur du nombre de tours 
 
 void Joueur::setPossessions(Possessions& p){//Definition des possessions du joueur
 	this->p = p;
+}
+
+void Joueur::gestionPrison() { // Permet la gestion de la prision pour le joueur
+    cout << prison << endl;
+    if ( prison == 0 || prison > 3 ){ // Si le joueur est en prison depuis plus de trois tours
+        this->setPrison(0); // Son nombre de tours successifs en prison repasse a 0
+    }
+    else {
+        this->setPrison(prison+1); // Sinon, l'atribut prison prend la valeur prison+1 (le joueur passe un tour supplémentaire en prison)
+        cout << "Souhaitez-vous sortir pour 50€ ?" << endl; // On propose au joueur de sortir de prison pour 50€
+        string input;
+        cin >> input;
+        if (input == "y"){ // Si le joueur souhaite sortir en payant, il répond "y"
+            this->debiter(50); // Son solde est debite de 50€
+            this->setPrison(0); // Son nombre de tours successifs en prison passe a 0
+            cout << "Vous sortez de prison et votre solde est de : " << this->solde << " €" << endl;
+        }			// On indique au joueur qu'il est sorti et on affiche son nouveau solde.
+    }
 }
 
 void Joueur::jouer(int nbCases) { //Permet le deplacement du joueur via le deplacement de son pion

@@ -1,7 +1,7 @@
 /*
  * Jeu.h
  *
- *  Created on: 19 janv. 2023
+ *  Created on: 09 janv. 2023
  *      Author: quent
  */
 
@@ -16,6 +16,7 @@
 #include "Joueur.h"
 #include "Propriete.h"
 #include "De.h"
+#include "Case.h"
 
 using namespace std;
 
@@ -46,6 +47,7 @@ public:
 
 	void tourDeJeu();
 
+	bool finPartie();
 };
 
 #endif /* JEU_H_ */
