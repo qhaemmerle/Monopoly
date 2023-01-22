@@ -9,7 +9,7 @@ private:
 
 public:
 	Depart();
-	void arreterSur(Joueur J);
+	void arreterSur();
 };
 
 #endif /* DEPART_H_ */
