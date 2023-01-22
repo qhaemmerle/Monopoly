@@ -66,16 +66,15 @@ void Chance :: arretSur(Joueur* j){
         j->setPosition(11); //idem cas départ
     }
     else if (i==12){
-        cout << "Rénovation des locaux. Versez pour chaque maison 25€ et versez pour chaque hôtel 100€." << endl;
-        //calcul de la somme : on a accès au nombre de maisons et hotels ?
-        int s1 = 0*25 + 0*100;
-        j->debiter(s);
+        //cout << "Rénovation des locaux. Versez pour chaque maison 25€ et versez pour chaque hôtel 100€." << endl;
+        //int s = 0*25 + 0*100;
+        //calcul de la somme : impossible sans les propriétés des joueurs.
+        cout << "Fermeture du couloir des assos. Payez 100€ pour sa réouverture." << endl;
+        j->debiter(100);
     }
     else if (i==13){
-        cout << "Rénovation des locaux. Versez pour chaque maison 40€ et versez pour chaque hôtel 115€." << endl;
-        //calcul de la somme : on a accès au nombre de maisons et hotels ?
-        int s2 = 0*40 + 0*115;
-        j->debiter(s);
+        cout << "Fermeture du couloir des assos. Payez 150€ pour sa réouverture." << endl;
+        j->debiter(150);
     }
     else if (i==14){
         cout << "Reculez de trois cases." << endl;
