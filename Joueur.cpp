@@ -16,7 +16,7 @@ Joueur::Joueur(string nom, Pion p, Jeu* jeu, int solde){
 	this->solde = solde;
 	this->jeu = jeu;
 	this->prison = 0;
-	this->p = Possessions();
+	this->nb_possessions = 0;
 
 }
 
@@ -40,8 +40,8 @@ const Jeu Joueur::getJeu(){ //Obtention du jeu en cours (dans le cas d'un jeu sa
 	return this->jeu;
 }
 
-Possessions Joueur::getPossessions(){//Obtention des possessions du joueur (propriete, gare, etc)
-	return p;
+int Joueur::getNb_possessions(){//Obtention des possessions du joueur (propriete, gare, etc)
+	return nb_possessions;
 }
 
 void Joueur::setNom(const string nom) { // Definition du nom du joueur
@@ -64,8 +64,8 @@ void Joueur::setPrison(int prison){//Definition de la valeur du nombre de tours 
 	this->prison = prison;
 }
 
-void Joueur::setPossessions(Possessions& p){//Definition des possessions du joueur
-	this->p = p;
+void Joueur::setNb_possessions(int nb){//Definition des possessions du joueur
+	this->nb_possession = nb;
 }
 
 void Joueur::gestionPrison() { // Permet la gestion de la prision pour le joueur
@@ -86,9 +86,6 @@ void Joueur::gestionPrison() { // Permet la gestion de la prision pour le joueur
     }
 }
 
-void Joueur::jouer(int nbCases) { //Permet le deplacement du joueur via le deplacement de son pion
-	pion.deplacer(nbCases)->arretSur(this); //On deplace le pion d'un nombre de case defini et on definit que le joueur s'arrete sur la case associee
-}
 
 void Joueur::crediter(int montant) {//Permet de crediter le solde du joueur d'un montant fixe
     this->solde = solde + montant;
@@ -100,30 +97,13 @@ void Joueur::debiter(int montant) {//Permet de debiter le solde d'un joueur d'un
 	}
 	else{
 		this->solde = solde - montant; //Si le joueur n'a pas les moyens de payer, on commence par retrancher le montant a son solde
-		while (solde < 0 && nbPossessions() > 0){ //Puis on vend ses possessions jusqu'a avoir un solde positif
-			this->vendPossession();
-		}
+		cout<<"Votre solde est négatif. Vous hypothéquez vos propriété en partant de la plus couteuse jusqu'à passage en positif"<<endl;
+		/*grosse hypothèque*/
 	}
 }
 
-int Joueur::nbPossessions(){
-	return this->p.getNbPossessions();
-}
-void Joueur::addPossession(Propriete* p){
-	this->p.addPossession(p);
-}
-void Joueur::removePossession(Propriete* p){
-	this->p = *this->p.removePossession(p);
-}
-
-void Joueur::vendPossession(){
-	this->crediter(this->p.getPossession()->getPrixAchat());
-	this->p.getPossession()->setPossession(NULL);
-	this->p = *this->p.removePossession(this->p.getPossession());
-}
-
 bool Joueur::perdu(){
-	return (this->nbPossessions() == 0 && solde < 0);
+	return (this->nb_possessions == 0 && solde < 0);
 }
 
 

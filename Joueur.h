@@ -11,7 +11,7 @@
 #include <iostream>
 #include <string>
 #include "Pion.h"
-#include "Possessions.h"
+#include "Propriete.h"
 
 
 using namespace std;
@@ -26,7 +26,7 @@ private:
 	Pion pion;
 	Jeu* jeu;
 	int prison;
-	Propriete p;
+	int nb_possessions
 
 protected:
     int solde;
@@ -41,24 +41,20 @@ public:
 	int getSolde() const;
 	int getPrison();
 	const Jeu getJeu();
-
-	Possessions getPossessions();
+	int getNb_possessions();
 
 	void setNom(const string nom);
 	void setPion(Pion pion);
 	void setSolde(int solde);
 	void setJeu(Jeu jeu);
 	void setPrison(int prison);
-	void setPossessions(Possessions& p);
+	void setNb_possessions(int nb);
+
 
 	void gestionPrison();
 	void jouer(int nbCases);
 	void crediter(int montant);
 	void debiter(int montant);
-	int nbPossessions();
-	void addPossession(Propriete* p);
-	void removePossession(Propriete* p);
-	void vendPossession();
 	bool perdu(){return (this->nbPossessions() == 0 && solde < 0);}
 
 	void afficheSolde()

@@ -18,14 +18,14 @@ public:
 	Joueur* getJoueur();
 	void setJoueur(Joueur joueur);
 
-	Case* getPosition();
+	int getPosition();
 	void setPosition(int position);
 
 	const string getNom() const;
 	void setNom(const string &nom);
 
 	void deplacer(int nb_de_case);
-	void deplacerA(int num_de_case)
+	void deplacerA(int num_de_case);
 
 	int goToPrison();
 

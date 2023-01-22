@@ -44,10 +44,3 @@ void Pion::deplacer(int n) {//Deplacement du pion
         position = 0;
 }
 
-void Pion::goToPrison(){//Envoi du pion en prison
-	joueur->setPrison(1); //Le nombre de tour en prison prend la valeur 1
-	while (position->getNom() != "Prison"){ //Deplace le pion sur tout le plateau jusqu'a arriver a la case prison
-		this->position = position->getSuivante();
-        this->joueur->setPion(*this);
-	}
-}
