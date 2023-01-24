@@ -5,6 +5,9 @@
 #include <string>
 using namespace std;
 
+Chance::Chance()
+	Case("Chance"){}
+
 //void Chance::creerCartesChance(){
     //créer un tableau avec les cartes
     //mélanger le tableau
