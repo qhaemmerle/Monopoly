@@ -8,7 +8,6 @@ using namespace std;
 class Chance : public Case{
 public:
 	Chance();
-	//void initCartesChance();
 	void arretSur(Joueur j);
 };
 
