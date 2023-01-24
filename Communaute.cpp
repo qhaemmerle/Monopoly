@@ -7,12 +7,6 @@ using namespace std;
 Communaute::Communaute()
 	:Case("Caisse de communauté"){}
 
-//void Communaute::creerCartesCommunaute(){
-    //créer un tableau avec les cartes
-    //mélanger le tableau
-    //identifier ce que doit faire chaque carte
-//}
-
 void Communaute :: arreterSur(Joueur* j){
      //pioche : tire un nombre aléatoire entre 0 et 13
 	srand((unsigned) time(NULL));
