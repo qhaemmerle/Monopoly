@@ -8,7 +8,6 @@ using namespace std;
 class Communaute : public Case{
 public:
 	Communaute();
-	//void initCartesCommunaute();
 	void arreterSur(Joueur* j);
 };
 #endif /* COMMUNAUTE_H_ */
