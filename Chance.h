@@ -7,7 +7,7 @@ using namespace std;
 
 class Chance : public Case{
 public:
-	Chance():Case("Chance"){};
+	Chance();
 	//void initCartesChance();
 	void arretSur(Joueur j);
 };
