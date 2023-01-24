@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+Communaute::Communaute()
+	Case("Caisse de communauté"){}
 
 //void Communaute::creerCartesCommunaute(){
     //créer un tableau avec les cartes
