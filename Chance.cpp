@@ -6,7 +6,7 @@
 using namespace std;
 
 Chance::Chance()
-	Case("Chance"){}
+	:Case("Chance"){}
 
 //void Chance::creerCartesChance(){
     //créer un tableau avec les cartes
