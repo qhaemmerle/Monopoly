@@ -8,12 +8,6 @@ using namespace std;
 Chance::Chance()
 	:Case("Chance"){}
 
-//void Chance::creerCartesChance(){
-    //créer un tableau avec les cartes
-    //mélanger le tableau
-    //identifier ce que doit faire chaque carte
-//}
-
 void Chance::arreterSur(Joueur* j){
     //pioche : tire un nombre aléatoire entre 0 et 15
 	srand((unsigned) time(NULL));
