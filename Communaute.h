@@ -7,7 +7,7 @@ using namespace std;
 
 class Communaute : public Case{
 public:
-	Communaute():Case("Caisse de communauté"){};
+	Communaute();
 	//void initCartesCommunaute();
 	void arreterSur(Joueur* j);
 };
