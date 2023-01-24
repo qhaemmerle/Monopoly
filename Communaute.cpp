@@ -9,7 +9,7 @@ Communaute::Communaute()
 
 void Communaute :: arreterSur(Joueur* j){
      //pioche : tire un nombre aléatoire entre 0 et 13
-	srand((unsigned) time(NULL));
+    srand((unsigned) time(NULL));
     int i = (rand() % 14);
 
     //sélection de la carte
